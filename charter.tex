@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Diseño e implementación de un data logger de alta velocidad basado en linux embebido} 
+\titulo{Diseño e implementación de un data logger de alta velocidad basado en Linux embebido} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -112,9 +112,9 @@ En el contexto industrial, la captura confiable de señales analógicas resulta 
 
 La solución propuesta busca cubrir esta brecha mediante una arquitectura basada en el microprocesador STM32MP157D, el convertidor analógico-digital ADS1256 de Texas Instruments y una distribución de Linux embebido generada a medida mediante Yocto Project. El sistema estará compuesto por una etapa de acondicionamiento de señal, un módulo de adquisición basado en el ADC ADS1256, una plataforma de procesamiento embebida y una aplicación de usuario encargada de gestionar la configuración, adquisición, almacenamiento y comunicación de los datos registrados.
 
-Desde el punto de vista funcional, las señales provenientes del entorno industrial serán acondicionadas mediante etapas de protección, filtrado analógico y adaptación de nivel, con el fin de adecuarlas al rango de operación del convertidor analógico-digital. Posteriormente, el ADS1256 realizará la conversión de las señales analógicas a datos digitales y transferirá las muestras hacia el STM32MP157D mediante una interfaz SPI. En la plataforma embebida, Linux gestionará la interacción entre el hardware de adquisición y la aplicación principal del sistema.
+Desde el punto de vista funcional, las señales provenientes del entorno industrial serán acondicionadas mediante etapas de protección, filtrado analógico y adaptación de nivel con el fin de adecuarlas al rango de operación del convertidor analógico-digital. Posteriormente, el ADS1256 realizará la conversión de las señales analógicas a datos digitales y transferirá las muestras hacia el STM32MP157D mediante una interfaz SPI. En la plataforma embebida, Linux gestionará la interacción entre el hardware de adquisición y la aplicación principal del sistema.
 
-La arquitectura de software se plantea dividida en dos niveles: espacio de kernel y espacio de usuario. En el espacio de kernel se implementará o integrará el soporte necesario para la comunicación con el ADS1256, considerando el uso del subsistema SPI, mecanismos de transferencia eficientes y una interfaz de acceso hacia la aplicación. En el espacio de usuario se desarrollará la lógica central del \textit{data logger}, encargada de configurar los parámetros de adquisición, organizar las muestras, aplicar procesamiento básico, almacenar los datos localmente y habilitar mecanismos de comunicación o supervisión externa.
+La arquitectura de software se plantea dividida en dos niveles: espacio de kernel y espacio de usuario. En el espacio de kernel se implementará o integrará el soporte necesario para la comunicación con el ADS1256, considerando el uso del subsistema SPI, mecanismos de transferencia eficientes y una interfaz de acceso hacia la aplicación. En el espacio de usuario se desarrollará la lógica central del \textit{data logger}, encargada de configurar los parámetros de adquisición, organizar las muestras, aplicar procesamiento básico, almacenar los datos localmente y habilitar mecanismos de comunicación o de supervisión externa.
 
 En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema propuesto. Se observa que la solución se organiza en cinco bloques principales: sensores analógicos, ADC de alta resolución, plataforma con Linux embebido, almacenamiento local e interfaz de supervisión web. Esta división permite identificar claramente el flujo de datos desde la adquisición de las señales hasta su almacenamiento y monitoreo, así como la separación entre las funciones de captura, procesamiento, configuración y control del sistema.
 
@@ -127,7 +127,7 @@ En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 
 \FloatBarrier
 
-La propuesta de valor del proyecto se centra en ofrecer una alternativa embebida, flexible y adaptable para adquisición de datos de alta resolución, incorporando almacenamiento local, configuración dinámica y posibilidad de integración con sistemas de supervisión. El cliente objetivo corresponde a pequeñas y medianas industrias, integradores de automatización, laboratorios técnicos o áreas de mantenimiento que requieran registrar señales analógicas de forma confiable sin depender de soluciones cerradas, costosas o sobredimensionadas.
+La propuesta de valor del proyecto se centra en ofrecer una alternativa embebida, flexible y adaptable para la adquisición de datos de alta resolución, incorporando almacenamiento local, configuración dinámica y posibilidad de integración con sistemas de supervisión. El cliente objetivo corresponde a pequeñas y medianas industrias, integradores de automatización, laboratorios técnicos o áreas de mantenimiento que requieran registrar señales analógicas de forma confiable sin depender de soluciones cerradas, costosas o sobredimensionadas.
 
 Los principales desafíos técnicos del proyecto se relacionan con la integración hardware-software, la configuración de una imagen de Linux embebido, la comunicación eficiente con el ADC, la reducción de latencias en el proceso de adquisición y la gestión del almacenamiento sin comprometer la continuidad del registro de datos. La innovación se encuentra en combinar un sistema Linux embebido personalizado, adquisición de datos a bajo nivel, almacenamiento local y configuración dinámica en una solución compacta orientada a escenarios industriales reales.
 
@@ -149,7 +149,7 @@ Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-La realización de este trabajo responde a la necesidad de contar con una plataforma de adquisición de datos confiable, flexible y de bajo costo, orientada al registro de señales analógicas de alta velocidad mediante una solución embebida ajustada a los requerimientos del sistema. Mediante el uso de Yocto Project, se busca construir una distribución de Linux Embebido a medida que permita adaptar el sistema operativo a las necesidades reales de una plataforma de adquisición de datos ayudando a disminuir posibles fuentes de latencia durante la operación del dispositivo. Esta capacidad de construir una imagen específica para la aplicación resulta especialmente importante en un sistema de adquisición de alta velocidad, donde la continuidad del muestreo, la interacción eficiente con el hardware y la estabilidad del entorno de ejecución influyen directamente en la confiabilidad del registro de datos. En este contexto, el desarrollo de un \textit{device driver} integrado en el espacio de kernel permite gestionar la adquisición de datos con mayor eficiencia, menor latencia y mejor continuidad que una solución basada únicamente en aplicaciones de espacio de usuario. Con ello, el proyecto busca demostrar que es posible construir una solución de bajo costo, flexible y adaptable, capaz de cubrir necesidades de monitoreo e instrumentación que normalmente requieren equipos comerciales más costosos o menos modificables.
+La realización de este trabajo responde a la necesidad de contar con una plataforma de adquisición de datos confiable, flexible y de bajo costo, orientada al registro de señales analógicas de alta velocidad mediante una solución embebida ajustada a los requerimientos del sistema. Mediante el uso de Yocto Project, se busca construir una distribución de Linux embebido a medida que permita adaptar el sistema operativo a las necesidades reales de una plataforma de adquisición de datos. De este modo, se pretende disminuir posibles fuentes de latencia durante la operación del dispositivo. Esta capacidad de construir una imagen específica para la aplicación resulta especialmente importante en un sistema de adquisición de alta velocidad, donde la continuidad del muestreo, la interacción eficiente con el hardware y la estabilidad del entorno de ejecución influyen directamente en la confiabilidad del registro de datos. En este contexto, el desarrollo de un \textit{device driver} integrado en el espacio de kernel permite gestionar la adquisición de datos con mayor eficiencia, menor latencia y mejor continuidad que una solución basada únicamente en aplicaciones de espacio de usuario. Con ello, el proyecto busca demostrar que es posible construir una solución de bajo costo, flexible y adaptable, capaz de cubrir necesidades de monitoreo e instrumentación que normalmente requieren equipos comerciales más costosos o menos modificables.
 
 
 \section{4. Alcance del proyecto}
@@ -162,7 +162,7 @@ El alcance del proyecto se delimita en función de los componentes de hardware, 
 El proyecto incluye:
 
 \begin{itemize}
-    \item Generación de una distribución personalizada de Linux Embebido utilizando el meta-framework Yocto Project.
+    \item Generación de una distribución personalizada de Linux embebido utilizando el meta-framework Yocto Project.
 
     \item Integración de la capa de soporte de hardware proporcionada por el fabricante, denominada \textit{Board Support Package} (BSP), para habilitar las características físicas del microprocesador STM32MP157D.
 
@@ -191,7 +191,7 @@ El proyecto incluye:
 El presente proyecto no incluye:
 
 \begin{itemize}
-    \item El diseño esquemático, ruteo (\textit{PCB layout}) ni la fabricación física de placas de circuito impreso dedicadas. El ecosistema físico se articulará mediante el ensamblaje e instrumentación de prototipos, tarjetas de desarrollo comerciales o tarjetas de evaluación disponibles en el mercado que incluyan el SoC STM32MP157D y el periférico ADC ADS1256.
+    \item El diseño esquemático, el ruteo (\textit{PCB layout}) y la fabricación física de placas de circuito impreso dedicadas. El ecosistema físico se articulará mediante el ensamblaje y la instrumentación de prototipos, tarjetas de desarrollo comerciales o tarjetas de evaluación disponibles en el mercado que incluyan el SoC STM32MP157D y el periférico ADC ADS1256.
 
     \item La implementación de una aplicación compleja en espacio de usuario para registro continuo, almacenamiento masivo y gestión avanzada de archivos.
 
@@ -199,7 +199,7 @@ El presente proyecto no incluye:
 
     \item El diseño e implementación de filtros digitales complejos con coeficientes arbitrarios.
 
-    \item El desarrollo de una interfaz web elaborada, orientada a experiencia de usuario avanzada, visualización histórica de datos o administración remota.
+    \item El desarrollo de una interfaz web elaborada que incluya una experiencia de usuario avanzada, visualización histórica de datos o administración remota.
 
     \item La validación metrológica, certificación industrial o endurecimiento del producto para despliegue comercial.
 
@@ -209,27 +209,27 @@ El presente proyecto no incluye:
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-Para el desarrollo del presente proyecto se supone que existen las condiciones necesarias para diseñar, implementar y validar un \textit{data logger} de alta velocidad basado en Linux embebido. Dichos supuestos consideran la disponibilidad de recursos técnicos, humanos, materiales y organizacionales, así como la factibilidad de integración entre los distintos componentes del sistema. En particular, se establecen los siguientes supuestos:
+Para el desarrollo del presente proyecto, se supone que existen las condiciones necesarias para diseñar, implementar y validar un \textit{data logger} de alta velocidad basado en Linux embebido. Dichos supuestos consideran la disponibilidad de recursos técnicos, humanos, materiales y organizacionales, así como la factibilidad de integración entre los distintos componentes del sistema. En particular, se establecen los siguientes supuestos:
 \begin{itemize}
-    \item se dispone de una plataforma de desarrollo embebida compatible con Linux embebido, con soporte BSP vigente y con las interfaces de hardware necesarias para la adquisición, el almacenamiento local y la configuración del sistema;
+    \item Se dispone de una plataforma de desarrollo embebida compatible con Linux embebido, con soporte BSP vigente y con las interfaces de hardware necesarias para la adquisición, el almacenamiento local y la configuración del sistema;
     
-    \item se dispone del convertidor analógico-digital seleccionado, de su documentación técnica y de los elementos de interconexión requeridos para su integración con la plataforma de procesamiento;
+    \item Se dispone del convertidor analógico-digital seleccionado, de su documentación técnica y de los elementos de interconexión requeridos para su integración con la plataforma de procesamiento;
     
-    \item existe compatibilidad eléctrica, lógica y temporal entre la plataforma embebida, el convertidor analógico-digital, el bus SPI, las señales de control e interrupción y el medio de almacenamiento empleado;
+    \item Existe compatibilidad eléctrica, lógica y temporal entre la plataforma embebida, el convertidor analógico-digital, el bus SPI, las señales de control e interrupción y el medio de almacenamiento empleado;
     
-    \item la generación de una distribución Linux embebida a medida mediante Yocto Project resulta técnicamente viable con los recursos de cómputo, la documentación disponible y el nivel de conocimiento alcanzable durante el desarrollo del trabajo;
+    \item La generación de una distribución de Linux embebido a medida mediante Yocto Project resulta técnicamente viable con los recursos de cómputo, la documentación disponible y el nivel de conocimiento alcanzable durante el desarrollo del trabajo;
     
-    \item la integración del \textit{device driver} y de la configuración del \textit{device tree} en la imagen final del sistema es factible dentro del ecosistema de software seleccionado, sin requerir la incorporación del controlador al kernel Linux \textit{mainline};
+    \item La integración del \textit{device driver} y de la configuración del \textit{device tree} en la imagen final del sistema es factible dentro del ecosistema de software seleccionado, sin requerir la incorporación del controlador al kernel Linux \textit{mainline};
     
-    \item el nivel de desempeño alcanzable por la plataforma será suficiente para cumplir los objetivos de adquisición y registro definidos para el proyecto, manteniendo continuidad operativa y una latencia compatible con la aplicación prevista;
+    \item El nivel de desempeño alcanzable por la plataforma será suficiente para cumplir los objetivos de adquisición y registro definidos para el proyecto, manteniendo continuidad operativa y una latencia compatible con la aplicación prevista;
     
-    \item se dispone de las herramientas de desarrollo, depuración, medición e instrumentación necesarias para validar la comunicación con el periférico, la captura de muestras y la escritura de datos en memoria no volátil;
+    \item Se dispone de las herramientas de desarrollo, depuración, medición e instrumentación necesarias para validar la comunicación con el periférico, la captura de muestras y la escritura de datos en memoria no volátil;
     
-    \item se cuenta con acceso a una red local o a un mecanismo equivalente de conexión que permita verificar la interfaz web mínima prevista para la configuración básica del sistema;
+    \item Se cuenta con acceso a una red local o a un mecanismo equivalente de conexión que permita verificar la interfaz web mínima prevista para la configuración básica del sistema;
     
-    \item se dispone del tiempo de dedicación y de los recursos humanos necesarios para llevar adelante las tareas de integración, prueba, ajuste y documentación del prototipo;
+    \item Se dispone del tiempo de dedicación y de los recursos humanos necesarios para llevar adelante las tareas de integración, prueba, ajuste y documentación del prototipo;
     
-    \item no se presentarán restricciones logísticas, reglamentarias o económicas extraordinarias que impidan la adquisición de componentes, el acceso a herramientas o la ejecución del proyecto dentro del período planificado.
+    \item No se presentarán restricciones logísticas, reglamentarias o económicas extraordinarias que impidan la adquisición de componentes, el acceso a herramientas o la ejecución del proyecto dentro del período planificado.
 \end{itemize}
 
 \end{document}
