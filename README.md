@@ -1,2 +1,2 @@
-# GdP_workspace
-CESE 2026: Plan de proyecto 
+# Plantilla-planificacion
+Plan de proyecto para trabajos finales de posgrado en Sistemas Embebidos
